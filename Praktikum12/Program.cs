@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Praktikum12
+namespace Tugas13
 {
     class Program
     {
@@ -18,7 +18,7 @@ namespace Praktikum12
             List<string> scrolls = new List<string>() { "Book of Peace", "Scroll of Swords", "Silence Guide Book" };
             while (true)
             {
-                Console.Write("1. My scroll list\n2. Add scroll\nChoose what to do : ");
+                Console.Write("1. My scroll list\n2. Add scroll\n3. Search scroll\n4. Remove scroll\nChoose what to do : ");
                 input = Convert.ToInt32(Console.ReadLine());
                 if (input == 1)
                 {
@@ -54,9 +54,67 @@ namespace Praktikum12
                             counter++;
                         }
                         baru.Clear();
-                    } 
+                    }
+                }
+                else if (input == 3)
+                {
+                    Console.Clear();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        Console.WriteLine("Insert scroll name:");
+                        var cari = Console.ReadLine();
+                        if (scrolls.Contains(cari, StringComparer.OrdinalIgnoreCase))
+                        {
+                            Console.WriteLine($"Book found. Queue number: {i + 1}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Book not found");
+                        }
+                    }
+                }
+                else if (input == 4)
+                {
+                    Console.Clear();
+                        Console.WriteLine("Remove from list by scroll name? Y/N:");
+                        var remove = Console.ReadLine();
+                        {
+                            if (remove == "y")
+                            {                                                    
+                                Console.WriteLine("Input scroll name:");
+                                var book = Console.ReadLine();
+                                if (book != null)
+                                {
+                                    scrolls.Remove(book);
+                                    Console.WriteLine("Book Removed!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Book not found");
+                                }
+                            }
+                            else if (remove == "n")
+                            {
+                                Console.WriteLine("Input scroll queue:");
+                                var bookqueue = Console.ReadLine();
+                                if (bookqueue != null)
+                                {
+                                    scrolls.Remove(bookqueue);
+                                    Console.WriteLine("Book Removed!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Queue not found. insert scroll queue:");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong selection. Choose again:");
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-}
+
