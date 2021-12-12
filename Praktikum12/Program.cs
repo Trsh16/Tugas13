@@ -89,7 +89,7 @@ namespace Tugas13
                             if (scrolls.Contains(book, StringComparer.CurrentCultureIgnoreCase))
                             {
 
-                                scrolls.Remove(book.StringComparer.CurrentCultureIgnoreCase);
+                                scrolls.Remove(book);
                                 Console.WriteLine("Book Removed!");
                             }
                             else
@@ -97,7 +97,7 @@ namespace Tugas13
                                 Console.WriteLine("Book not found");
                             }
                         }
-                        else if (remove == "n" || remove== "N")
+                        else if (remove == "n" || remove == "N")
                         {
                             Console.WriteLine("Input scroll queue:");
                             var bookqueue = Console.ReadLine();
