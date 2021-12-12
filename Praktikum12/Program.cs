@@ -15,7 +15,7 @@ namespace Tugas13
             var scroll = 0;
             var queue = 0;
             List<string> baru = new List<string>();
-            List<string> scrolls = new List<string>() { "Book of Peace", "Scroll of Swords", "Silence Guide Book" };
+            List<string> scrolls = new List<string>() { "Book of Peace", "Scroll of Swords", "Silence Guide Book"};
             while (true)
             {
                 Console.Write("1. My scroll list\n2. Add scroll\n3. Search scroll\n4. Remove scroll\nChoose what to do : ");
@@ -76,45 +76,51 @@ namespace Tugas13
                 else if (input == 4)
                 {
                     Console.Clear();
-                        Console.WriteLine("Remove from list by scroll name? Y/N:");
-                        var remove = Console.ReadLine();
+                    Console.WriteLine("Remove from list by scroll name? Y/N:");
+                    var remove = Console.ReadLine();
+                    {
+                        if (remove == "y" || remove == "Y")
                         {
-                            if (remove == "y")
-                            {                                                    
-                                Console.WriteLine("Input scroll name:");
-                                var book = Console.ReadLine();
-                                if (book != null)
-                                {
-                                    scrolls.Remove(book);
-                                    Console.WriteLine("Book Removed!");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Book not found");
-                                }
-                            }
-                            else if (remove == "n")
+                            Console.WriteLine("Input scroll name:");
+                            var book = Console.ReadLine();
+                            
+
+
+                            if (scrolls.Contains(book, StringComparer.CurrentCultureIgnoreCase))
                             {
-                                Console.WriteLine("Input scroll queue:");
-                                var bookqueue = Console.ReadLine();
-                                if (bookqueue != null)
-                                {
-                                    scrolls.Remove(bookqueue);
-                                    Console.WriteLine("Book Removed!");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Queue not found. insert scroll queue:");
-                                }
+
+                                scrolls.Remove(book.StringComparer.CurrentCultureIgnoreCase);
+                                Console.WriteLine("Book Removed!");
                             }
                             else
                             {
-                                Console.WriteLine("Wrong selection. Choose again:");
+                                Console.WriteLine("Book not found");
                             }
+                        }
+                        else if (remove == "n" || remove== "N")
+                        {
+                            Console.WriteLine("Input scroll queue:");
+                            var bookqueue = Console.ReadLine();
+                            if (bookqueue != null)
+                            {
+                                scrolls.Remove(bookqueue);
+                                Console.WriteLine("Book Removed!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Queue not found. insert scroll queue:");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Wrong selection. Choose again:");
                         }
                     }
                 }
+
             }
         }
     }
+}
+    
 
